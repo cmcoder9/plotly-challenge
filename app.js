@@ -41,19 +41,26 @@ var dropdownMenu = d3.select('#selDataset');
     
       Plotly.newPlot('bar', bar_data, bar_layout);
  //Create a bubble chart that displays each sample.
-    //Setup trace for bubble chart
+     //Setup trace for bubble chart 
+      var trace2 = {
+        //Use otu_ids for the x values.
+        x: data.samples[0].otu_ids,
 
-//
+        //Use sample_values for the y values.
+        y: data.samples[0].sample_values,
 
-//Use otu_ids for the x values.
+        //Use otu_labels for the text values.
+        text: data.samples[0].otu_labels,
 
-//Use sample_values for the y values.
-
-//Use sample_values for the marker size.
-
-//Use otu_ids for the marker colors.
-
-//Use otu_labels for the text values.
+        mode:'markers',
+        marker: {
+          //Use otu_ids for the marker colors.
+          color: data.samples[0].otu_ids,
+          
+          //Use sample_values for the marker size.
+          size: data.samples[0].samples_values
+        }
+      };
 
 //Display the sample metadata, i.e., an individual's demographic information.
 
