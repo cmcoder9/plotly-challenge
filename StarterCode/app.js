@@ -7,7 +7,7 @@ d3.json('samples.json').then(function(data) {
 // Use D3 to select the dropdown menu
 var dropdownMenu = d3.select('#selDataset');
 
-  //  Create the Traces
+  // Create the bar chart trace
     var trace1 = {
       x: data.samples[0].sample_values.slice(0,10),
       y: data.samples[0].otu_ids,
@@ -40,6 +40,24 @@ var dropdownMenu = d3.select('#selDataset');
       };
     
       Plotly.newPlot('bar', bar_data, bar_layout);
+ //Create a bubble chart that displays each sample.
+    //Setup trace for bubble chart
+
+//
+
+//Use otu_ids for the x values.
+
+//Use sample_values for the y values.
+
+//Use sample_values for the marker size.
+
+//Use otu_ids for the marker colors.
+
+//Use otu_labels for the text values.
+
+//Display the sample metadata, i.e., an individual's demographic information.
+
+//Display each key-value pair from the metadata JSON object somewhere on the page.
 });
 
     
