@@ -9,9 +9,9 @@ var dropdownMenu = d3.select('#selDataset');
 
   // Create the bar chart trace
     var trace1 = {
-      x: data.samples[0].sample_values.reverse().slice(0,10),
-      y: data.samples[0].otu_ids.reverse().slice(0,10).map(ids => `otu ${ids}`),
-      hover_data: data.samples[0].otu_labels.reverse().slice(0,10),
+      x: data.samples[0].sample_values.slice(0,10).reverse(),
+      y: data.samples[0].otu_ids.slice(0,10).reverse().map(ids => `otu ${ids}`),
+      hover_data: data.samples[0].otu_labels.slice(0,10).reverse(),
       orientation: 'h',
       type: 'bar'
     };
@@ -57,7 +57,7 @@ var dropdownMenu = d3.select('#selDataset');
           color: data.samples[0].otu_ids,
           
           //Use sample_values for the marker size.
-          size: data.samples[0].samples_values
+          size: data.samples[0].sample_values
         }
       };
 // Create the data array for the bubble chart
