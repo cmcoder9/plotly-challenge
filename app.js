@@ -94,25 +94,25 @@ var wfData = [
     delta: { reference: 400, increasing: { color: "RebeccaPurple" } },
     gauge: {
       axis: { range: [null, 9], tickwidth: 1, tickcolor: "darkblue" },
-      bar: { color: "darkblue" },
+      ba: { color: "darkblue" },
       bgcolor: "white",
-      borderwidth: 2,
+      borderwidth: 1,
       bordercolor: "gray",
       steps: [
-        { range: [0,1], color: "Cornsilk" },
-        { range: [1,2], color: "PaleGoldenRod" },
-        { range: [2,3], color: "YellowGreen" },
-        { range: [3,4], color: "" },
-        { range: [4,5], color: "LightGreen" },
-        { range: [5,6], color: "SpringGreen" },
-        { range: [6,7], color: "Green" },
-        { range: [7,8], color: "DarkOliveGreen" },
-        { range: [8,9], color: "Darkgreen"}
+        { range: [0,1], color: "#f7ffe6"},
+        { range: [1,2], color: "#e6ffb3" },
+        { range: [2,3], color: "#d5ff80" },
+        { range: [3,4], color: "#c4ff4d" },
+        { range: [4,5], color: "#b3ff1a" },
+        { range: [5,6], color: "#99e600" },
+        { range: [6,7], color: "#77b300" },
+        { range: [7,8], color: "#558000" },
+        { range: [8,9], color: "#223300"}
       ],
       threshold: {
         line: { color: "red", width: 4 },
         thickness: 0.75,
-        value: 3
+        value: wfreqData
       }
     }
   }
