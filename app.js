@@ -15,7 +15,7 @@ var dropdownMenu = d3.select('#selDataset');
       orientation: 'h',
       type: 'bar'
     };
-  
+
     // Create the data array for the plot
     var bar_data = [trace1];
   
@@ -84,6 +84,49 @@ var bbtypeData = data.metadata.map(item => item.bbtype);
 var wfreqData = data.metadata.map(item => item.wfreq);
 
 //Display each key-value pair from the metadata JSON object somewhere on the page.
+
+var wfData = [
+  {
+    type: "indicator",
+    mode: "gauge+number+delta",
+    value: wfreqData,
+    title: { text: "Belly Button Washing Frequency", font: { size: 24 } },
+    delta: { reference: 400, increasing: { color: "RebeccaPurple" } },
+    gauge: {
+      axis: { range: [null, 9], tickwidth: 1, tickcolor: "darkblue" },
+      bar: { color: "darkblue" },
+      bgcolor: "white",
+      borderwidth: 2,
+      bordercolor: "gray",
+      steps: [
+        { range: [0,1], color: "Cornsilk" },
+        { range: [1,2], color: "PaleGoldenRod" },
+        { range: [2,3], color: "YellowGreen" },
+        { range: [3,4], color: "" },
+        { range: [4,5], color: "LightGreen" },
+        { range: [5,6], color: "SpringGreen" },
+        { range: [6,7], color: "Green" },
+        { range: [7,8], color: "DarkOliveGreen" },
+        { range: [8,9], color: "Darkgreen"}
+      ],
+      threshold: {
+        line: { color: "red", width: 4 },
+        thickness: 0.75,
+        value: 3
+      }
+    }
+  }
+];
+
+var gLayout = {
+  width: 500,
+  height: 400,
+  margin: { t: 25, r: 25, l: 25, b: 25 },
+  paper_bgcolor: "lavender",
+  font: { color: "darkblue", family: "Arial" }
+};
+
+Plotly.newPlot('gauge', wfData, gLayout);
 
 });
 
