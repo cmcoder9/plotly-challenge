@@ -13,7 +13,7 @@ function updatePlotly(){
   // for (var i = 0; i<data.names.length; i++) {
   //   dropdownMenu.append('option').text(data.names[i]).property('value', data.names[i]);
   // }
-  var dataset = data.names.forEach(name => {
+  data.names.forEach(name => {
     dropdownMenu.append('option').text(name).property('value', name)
   });
 };
@@ -96,7 +96,15 @@ var bbtypeData = data.metadata.map(item => item.bbtype);
 var wfreqData = data.metadata.map(item => item.wfreq);
 
 //Display each key-value pair from the metadata JSON object somewhere on the page.
-
+function displayPanel(){
+  var panel=d3.select('#sample-metadata');
+  metaList=Object.entries(data.metadata[0]);
+  metaList.forEach(kvp=>{
+    panel.append('p').text(`${kvp[0]}-${kvp[1]}`)
+  });
+};
+displayPanel();
+//Gauge
 var wfData = [
   {
     type: "indicator",
@@ -142,4 +150,8 @@ Plotly.newPlot('gauge', wfData, gLayout);
 
 });
 
-    
+function optionChanged(selected){
+  console.log(selected);
+  // displayPanel(selected);
+  // updateBar(selected);
+};
