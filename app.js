@@ -4,8 +4,23 @@ var data = {};
 d3.json('samples.json').then(function(data) {
   console.log(data);
 
+  // Call updatePlotly() when a change takes place to the DOM
+d3.selectAll("#selDataset").on("change", updatePlotly);
+
 // Use D3 to select the dropdown menu
-var dropdownMenu = d3.select('#selDataset');
+function updatePlotly(){
+  var dropdownMenu = d3.select('#selDataset');
+  var option = dropdownMenu.data.samples.names.forEach(name => {
+    dropdown.append('option').text(name).property('value', name)
+  
+  if (dataset === names[0]){
+    return (names[0]);
+  }
+  else if (dataset === names[i]){
+    return (names[i]);
+  }
+});
+};
 
   // Create the bar chart trace
     var trace1 = {
