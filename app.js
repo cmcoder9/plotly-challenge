@@ -10,17 +10,14 @@ d3.selectAll("#selDataset").on("change", updatePlotly);
 // Use D3 to select the dropdown menu
 function updatePlotly(){
   var dropdownMenu = d3.select('#selDataset');
-  var option = dropdownMenu.data.samples.names.forEach(name => {
-    dropdown.append('option').text(name).property('value', name)
-  
-  if (dataset === names[0]){
-    return (names[0]);
-  }
-  else if (dataset === names[i]){
-    return (names[i]);
-  }
-});
+  // for (var i = 0; i<data.names.length; i++) {
+  //   dropdownMenu.append('option').text(data.names[i]).property('value', data.names[i]);
+  // }
+  var dataset = data.names.forEach(name => {
+    dropdownMenu.append('option').text(name).property('value', name)
+  });
 };
+updatePlotly();
 
   // Create the bar chart trace
     var trace1 = {
